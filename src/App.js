@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Login from './Components/Login';
+import Stock from './Components/Stocks/Stock';
+import Finances from './Components/Finances/Finances';
+import TodoList from './Components/TodoList/TodoList';
+
+import React from 'react';
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Login} />
+          <Route path="/stock" component={Stock} />
+          <Route path="/finances" component={Finances} />
+          <Route path="/todolist" component={TodoList} />
+        </Switch>
+      </Router>
     </div>
   );
 }
